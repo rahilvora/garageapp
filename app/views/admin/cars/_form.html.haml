@@ -1,0 +1,35 @@
+= form_for [:admin, @car] do |f|
+  / - if @car.errors.any?
+  / #error_explanation
+  /   %h2
+  /   = pluralize(@car.errors.count, "error")
+  /   %ul
+  /   - @car.errors.full_messages.each do |msg|
+  /     %li= msg  
+  .form-group
+    = f.label :brand, "Car brand"
+    = f.text_field :brand, class: "form-control" 
+  .form-group
+    = f.label :name, "Car Name"
+    = f.text_field :name, class: "form-control" 
+  .form-group
+    = f.label :number, "Car Number"
+    = f.text_field :number, class: "form-control" 
+  .form-group
+    = f.label :date, "Date of registration"
+    = f.date_field :date, class: "form-control" 
+  .form-group
+    = f.label :owner, "Owner"
+    = f.text_field :owner, class: "form-control" 
+  .form-group
+    = f.label :color, "Car Color"
+    = f.text_field :color, class: "form-control" 
+  .form-group
+    = f.label :price, "Car Price"
+    = f.text_field :price, class: "form-control" 
+  .form-group
+    = f.label :negotiable, "Negotiable"
+    = f.select :negotiable, ['Yes','No'], {}, {class: "form-control"}
+  .form-group
+    = link_to "<-Back",admin_cars_path,class: "btn btn-primary"
+    = f.submit :submit, class: "btn btn-success", type: "submit" 

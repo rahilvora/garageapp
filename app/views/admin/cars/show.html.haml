@@ -1,0 +1,23 @@
+%h1 Car Details
+.table-responsive
+	%table.table.table-striped
+		%tr 
+			%th Car Brand
+			%th Car Name
+			%th Car Number
+			%th Date of Registration
+			%th Owner
+			%th Car Color
+			%th Car Price
+			%th Negotiable
+		%tr 
+			%td= @car.brand
+			%td= @car.name
+			%td= @car.number
+			%td= @car.date
+			%td= @car.owner
+			%td= @car.color
+			%td= @car.price
+			%td= @car.negotiable	
+
+= link_to "<-Back",admin_cars_path,class: "btn btn-primary"

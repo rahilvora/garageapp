@@ -1,0 +1,34 @@
+%h1 AdminCars
+- if admin_signed_in?
+	= link_to "Sign Out",destroy_admin_session_path,method: :destroy,class:'btn btn-danger'
+= link_to "Add Car", new_admin_car_path, class:'btn btn-primary '  
+%h1 List of cars
+.table-responsive
+	%table.table.table-striped
+		%tr 
+			%th Car Brand
+			%th Car Name
+			%th Car Number
+			%th Date of Registration
+			%th Owner
+			%th Car Color
+			%th Car Price
+			%th Negotiable
+			%th Show
+			%th Edit
+			%th Delete
+		- @cars.each do |car|
+			%tr 
+				%td= car.brand
+				%td= car.name
+				%td= car.number
+				%td= car.date
+				%td= car.owner
+				%td= car.color
+				%td= car.price
+				%td= car.negotiable	
+				%td= link_to "Show",admin_car_path(car),class: "btn btn-info"
+				%td= link_to "Edit",edit_admin_car_path(car) ,class: 'btn btn-warning'
+				%td= link_to "Delete",admin_car_path(car), method: :delete, data: {confirm: "are your sure your want to delete"},class: 'btn btn-danger'
+
+			
